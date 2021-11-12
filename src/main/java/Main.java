@@ -1,8 +1,6 @@
-import Clases.PalabraTraducida;
+import ClasesObj.PalabraTraducida;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class Main {
@@ -36,18 +34,23 @@ public class Main {
                     }else{
                         JOptionPane.showMessageDialog(null,"Ocurrio un error al ingresar la palabra");
                     }
-                    continue;
+                    break;
                 case "2":
-                    palabras.MostrarDiccionario();
-                    continue;
+                    palabras.mostrarDiccionario();
+                    break;
                 case "3":
-                    continue;
+                    palabraEspanol=JOptionPane.showInputDialog("Ingrese la palabra a traducir");
+                    if (validarPalabras(palabraEspanol)){
+                        break;
+                    }
+                    palabras.buscar(palabraEspanol.toLowerCase());
+                    break;
                 case "0":
                     salir=true;
-                    continue;
+                    break;
                 default:
                     JOptionPane.showMessageDialog(null,"Ingerese un valor valido");
-
+                    break;
             }
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null,"Solo es posible salir inglesando 0");
@@ -55,13 +58,10 @@ public class Main {
         }while (!salir);
     }
     public static boolean validarPalabras(String palabra){
+        Pattern p = Pattern.compile("[a-zA-Z]+");
         if (palabra.isEmpty()){
-            Pattern p = Pattern.compile("[a-zA-Z]+");
-            p.matcher(palabra).matches();
-            JOptionPane.showMessageDialog(null,"Ingrese un valor valido (no se permiten numeros)");
-            return true;
+                JOptionPane.showMessageDialog(null,"Ingrese un valor valido (no se permiten numeros)");
         }else{
-            Pattern p = Pattern.compile("[a-zA-Z]+");
             if (!p.matcher(palabra).matches()){
                 JOptionPane.showMessageDialog(null,"Ingrese un valor valido (no se permiten numeros)");
                 return true;

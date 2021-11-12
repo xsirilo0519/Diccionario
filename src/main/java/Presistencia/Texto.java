@@ -1,7 +1,6 @@
 package Presistencia;
 
-import Clases.PalabraTraducida;
-import jdk.swing.interop.SwingInterOpUtils;
+import ClasesObj.PalabraTraducida;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -41,7 +40,6 @@ public class Texto {
             r.close();
             return palabras;
         }catch (Exception e){
-            System.out.println("Error al leer los datos "+e);
             return null;
         }
     }
