@@ -31,12 +31,11 @@ public class Main {
                     if (validarPalabras(palabraIngles)){
                         break;
                     }
-                    palabras.agregarPalabra(palabraEspanol.toLowerCase(),palabraIngles.toLowerCase());
-//                    if(palabras.agregarPalabra(palabraEspanol.toLowerCase(),palabraIngles.toLowerCase())){
-//                        JOptionPane.showMessageDialog(null,"Se ingreso la palabra correctamente");
-//                    }else{
-//                        JOptionPane.showMessageDialog(null,"Ocurrio un error al ingresar la palabra");
-//                    }
+                    if(palabras.agregarPalabra(palabraEspanol.toLowerCase(),palabraIngles.toLowerCase())){
+                        JOptionPane.showMessageDialog(null,"Se ingreso la palabra correctamente");
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Ocurrio un error al ingresar la palabra");
+                    }
                     continue;
                 case "2":
                     palabras.MostrarDiccionario();

@@ -8,12 +8,14 @@ import java.util.ArrayList;
 
 public class Texto {
 
-    private String rutas="src\\main\\resources\\Diccionario.txt";
-    private File ruta =new File(rutas);
+    private File ruta =new File("src\\main\\resources\\Diccionario.txt");
     private FileWriter fichero;
     private BufferedWriter bw;
+    private FileReader r;
+    private BufferedReader buffer;
     private ArrayList<PalabraTraducida> palabras;
     private String divisor[];
+    private String temp;
 
     public Texto() {
         palabras = new ArrayList<PalabraTraducida>();
@@ -23,40 +25,40 @@ public class Texto {
 
     }
 
-    public void leer(String nombreArchivo){
-
+    public ArrayList<PalabraTraducida> leer(){
         try {
-
-            FileReader r = new FileReader(nombreArchivo);
-            BufferedReader buffer = new BufferedReader(r);
-
-            String temp="";
-
+            r = new FileReader(ruta);
+            buffer = new BufferedReader(r);
+            temp="";
             while (temp!=null){
                 temp= buffer.readLine();
                 if (temp==null)
                     break;
-                divisor=temp.split(" - ");
-                System.out.println();
+                divisor=temp.split("-");
                 palabras.add(new PalabraTraducida(divisor[0],divisor[1]));
             }
+            buffer.close();
+            r.close();
+            return palabras;
         }catch (Exception e){
-            System.out.println(e);
+            System.out.println("Error al leer los datos "+e);
+            return null;
         }
     }
 
-    public void escribir(String palabraEspanol,String palabraIngles){
+    public boolean escribir(String palabraEspanol,String palabraIngles){
         try
         {
             fichero = new FileWriter(ruta, true);
             bw = new BufferedWriter(fichero);
-            bw.newLine();
             bw.write(palabraEspanol+"-"+palabraIngles);
+            bw.newLine();
             bw.close();
             fichero.close();
+            return true;
         } catch (Exception e) {
             System.out.println("Error al escribri el texto");
-
+            return false;
         }
     }
 

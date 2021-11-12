@@ -28,20 +28,14 @@ public class PalabraTraducida {
         return palabraIngles;
     }
 
-    public ArrayList<PalabraTraducida> getListaDePalabras() {
-        return listaDePalabras;
-    }
-
-    public void setListaDePalabras(ArrayList<PalabraTraducida> listaDePalabras) {
-        this.listaDePalabras = listaDePalabras;
-    }
-
-    public void agregarPalabra(String palabraEspanol, String palabraIngles){
-         t.escribir(palabraEspanol,palabraIngles);
-
+    public boolean agregarPalabra(String palabraEspanol, String palabraIngles){
+         return t.escribir(palabraEspanol,palabraIngles);
     }
 
     public void MostrarDiccionario(){
-        listaDePalabras.forEach(x-> System.out.println(x.getPalabraEspanol()+" = "+x.getPalabraIngles()));
+        this.listaDePalabras=t.leer();
+        if (this.listaDePalabras!=null) {
+            listaDePalabras.forEach(x -> System.out.println(x.getPalabraEspanol() + " = " + x.getPalabraIngles()));
+        }
     }
 }
