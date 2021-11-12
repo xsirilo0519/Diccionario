@@ -1,18 +1,22 @@
 package Clases;
 
+import Presistencia.Texto;
+
 import java.util.ArrayList;
 
 public class PalabraTraducida {
     private String palabraEspanol;
-    private String palarbaIngles;
+    private String palabraIngles;
     private ArrayList<PalabraTraducida> listaDePalabras;
+    private Texto t;
 
-    public PalabraTraducida(String palabraEspanol, String palarbaIngles) {
+    public PalabraTraducida(String palabraEspanol, String palabraIngles) {
         this.palabraEspanol = palabraEspanol;
-        this.palarbaIngles = palarbaIngles;
+        this.palabraIngles = palabraIngles;
     }
     public PalabraTraducida() {
-
+        listaDePalabras= new ArrayList<PalabraTraducida>();
+        t = new Texto();
     }
 
 
@@ -20,8 +24,8 @@ public class PalabraTraducida {
         return palabraEspanol;
     }
 
-    public String getPalarbaIngles() {
-        return palarbaIngles;
+    public String getPalabraIngles() {
+        return palabraIngles;
     }
 
     public ArrayList<PalabraTraducida> getListaDePalabras() {
@@ -32,7 +36,12 @@ public class PalabraTraducida {
         this.listaDePalabras = listaDePalabras;
     }
 
-    public void agregarPalabra(String palabraEspanol, String palarbaIngles){
-        listaDePalabras.add(new PalabraTraducida(palabraEspanol,palarbaIngles));
+    public void agregarPalabra(String palabraEspanol, String palabraIngles){
+         t.escribir(palabraEspanol,palabraIngles);
+
+    }
+
+    public void MostrarDiccionario(){
+        listaDePalabras.forEach(x-> System.out.println(x.getPalabraEspanol()+" = "+x.getPalabraIngles()));
     }
 }

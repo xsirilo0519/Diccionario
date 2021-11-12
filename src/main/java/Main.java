@@ -2,6 +2,7 @@ import Clases.PalabraTraducida;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class Main {
@@ -11,7 +12,7 @@ public class Main {
         String palabraEspanol;
         String palabraIngles;
         boolean salir=false;
-
+        PalabraTraducida palabras = new PalabraTraducida();
         JOptionPane.showMessageDialog(null,"Bienvenido");
         do {
             try{
@@ -30,10 +31,15 @@ public class Main {
                     if (validarPalabras(palabraIngles)){
                         break;
                     }
-
-
+                    palabras.agregarPalabra(palabraEspanol.toLowerCase(),palabraIngles.toLowerCase());
+//                    if(palabras.agregarPalabra(palabraEspanol.toLowerCase(),palabraIngles.toLowerCase())){
+//                        JOptionPane.showMessageDialog(null,"Se ingreso la palabra correctamente");
+//                    }else{
+//                        JOptionPane.showMessageDialog(null,"Ocurrio un error al ingresar la palabra");
+//                    }
                     continue;
                 case "2":
+                    palabras.MostrarDiccionario();
                     continue;
                 case "3":
                     continue;
