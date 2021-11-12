@@ -3,12 +3,12 @@ package Clases;
 import java.util.ArrayList;
 
 public class PalabraTraducida {
-    private String palabraEspañol;
+    private String palabraEspanol;
     private String palarbaIngles;
     private ArrayList<PalabraTraducida> listaDePalabras;
 
-    public PalabraTraducida(String palabraEspañol, String palarbaIngles) {
-        this.palabraEspañol = palabraEspañol;
+    public PalabraTraducida(String palabraEspanol, String palarbaIngles) {
+        this.palabraEspanol = palabraEspanol;
         this.palarbaIngles = palarbaIngles;
     }
     public PalabraTraducida() {
@@ -16,8 +16,8 @@ public class PalabraTraducida {
     }
 
 
-    public String getPalabraEspañol() {
-        return palabraEspañol;
+    public String getPalabraEspanol() {
+        return palabraEspanol;
     }
 
     public String getPalarbaIngles() {
@@ -32,7 +32,7 @@ public class PalabraTraducida {
         this.listaDePalabras = listaDePalabras;
     }
 
-    public void agregarPalabra(String palabraEspañol, String palarbaIngles){
-        listaDePalabras.add(new PalabraTraducida(palabraEspañol,palarbaIngles));
+    public void agregarPalabra(String palabraEspanol, String palarbaIngles){
+        listaDePalabras.add(new PalabraTraducida(palabraEspanol,palarbaIngles));
     }
 }
