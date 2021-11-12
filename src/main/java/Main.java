@@ -1,10 +1,14 @@
+import Clases.PalabraTraducida;
+
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
         String opcion;
         boolean salir=false;
+
         JOptionPane.showMessageDialog(null,"Bienvenido");
         do {
 
